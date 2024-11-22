@@ -9,8 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106",
-    "next": "15.0.3"
+    "@emotion/cache": "^11.13.1",
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@madzadev/audio-player": "^2.1.14",
+    "@mui/icons-material": "^6.1.7",
+    "@mui/lab": "^6.0.0-beta.15",
+    "@mui/material": "^6.1.7",
+    "@mui/material-nextjs": "^6.1.7",
+    "@rpldy/upload-button": "^1.8.3",
+    "@rpldy/uploady": "^1.8.3",
+    "axios": "^1.7.7",
+    "motion": "^11.11.17",
+    "next": "15.0.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-loading-indicators": "^1.0.0",
+    "react-simple-player": "^1.1.0",
+    "uuid": "^11.0.3"
   }
 }
