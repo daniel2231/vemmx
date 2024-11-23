@@ -5,6 +5,8 @@ import MasteringFunction from '../components/mastering/MasteringFunction';
 import UploadButton from '../components/mastering/UploadButton';
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { NavigateBeforeSharp } from '@mui/icons-material';
+import Navbar from '../components/common/navbar/Navbar';
 
 const ContentDiv = styled(motion.div)`
 	display: flex;
@@ -62,7 +64,7 @@ const content = {
 };
 
 export default function Mastering() {
-	const [receivedAudioStatus, setReceivedAudioStatus] = useState(false);
+	const [receivedAudioStatus, setReceivedAudioStatus] = useState(true);
 	const [audioFiles, setAudioFiles] = useState(null);
 	const [originalWavFile, setOriginalWavFile] = useState(null);
 
@@ -70,6 +72,7 @@ export default function Mastering() {
 		<AnimatePresence>
 			<motion.div exit={{ opacity: 0 }}>
 				<motion.div initial="initial" animate="animate" variants={content}>
+					<Navbar />
 					<MasteringPageLayout>
 						{!receivedAudioStatus ? (
 							<ContentDiv

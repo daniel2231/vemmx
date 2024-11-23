@@ -2,11 +2,11 @@
 import { useEffect, useState } from 'react';
 import MasteringFunctionButton from './MasteringFunctionButton';
 import styled from '@emotion/styled';
-import SocialFunction from './SocialFunction';
 import { ToggleButtonGroup, ToggleButton } from '@mui/material';
 import { motion } from 'motion/react';
 import axios from 'axios';
 import { Riple } from 'react-loading-indicators';
+import SocialFunction from '../common/SocialFunction';
 
 const ButtonGroup = styled.div`
 	display: flex;
@@ -91,7 +91,7 @@ const StyledAudio = styled.audio`
 	}
 	&::-webkit-media-controls-play-button {
 		color: #ffffff;
-	}
+	}a
 	&::-webkit-media-controls-timeline {
 		border-radius: 25px;
 		margin-left: 10px;

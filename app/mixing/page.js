@@ -10,6 +10,7 @@ import UploadIndividualButton from '../components/mixing/UploadIndividualButton'
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import MixingFunction from '../components/mixing/MixingFunction';
+import Navbar from '../components/common/navbar/Navbar';
 
 const ContentDiv = styled(motion.div)`
 	display: flex;
@@ -36,7 +37,7 @@ const UploadIndividualButtonGroup = styled.div`
 	margin: 20px;
 `;
 
-const MasteringPageLayout = styled.div`
+const MixingPageLayout = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -134,7 +135,8 @@ export default function Mixing() {
 		<AnimatePresence>
 			<motion.div exit={{ opacity: 0 }}>
 				<motion.div initial="initial" animate="animate" variants={content}>
-					<MasteringPageLayout>
+					<Navbar />
+					<MixingPageLayout>
 						{!receivedAudioStatus ? (
 							<ContentDiv
 								variants={content}
@@ -169,7 +171,7 @@ export default function Mixing() {
 						) : (
 							<MixingFunction audioFiles={audioFiles} />
 						)}
-					</MasteringPageLayout>
+					</MixingPageLayout>
 				</motion.div>
 			</motion.div>
 		</AnimatePresence>
