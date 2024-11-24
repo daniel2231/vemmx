@@ -64,7 +64,7 @@ const content = {
 };
 
 export default function Mastering() {
-	const [receivedAudioStatus, setReceivedAudioStatus] = useState(true);
+	const [receivedAudioStatus, setReceivedAudioStatus] = useState(false);
 	const [audioFiles, setAudioFiles] = useState(null);
 	const [originalWavFile, setOriginalWavFile] = useState(null);
 
