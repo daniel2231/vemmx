@@ -115,7 +115,7 @@ export default function Mixing() {
 			form.append('files', file.file);
 		});
 		axios
-			.post('http://144.24.78.129:8080/mixing/', form, {
+			.post('https://rappire.site/mixing/', form, {
 				headers: { 'Content-Type': 'multipart/form-data' },
 				responseType: 'blob', // Expect binary data
 			})

@@ -91,8 +91,8 @@ const StyledAudio = styled.audio`
 	}
 	&::-webkit-media-controls-play-button {
 		color: #ffffff;
-	}a
-	&::-webkit-media-controls-timeline {
+	}
+	a &::-webkit-media-controls-timeline {
 		border-radius: 25px;
 		margin-left: 10px;
 		margin-right: 10px;
@@ -133,7 +133,7 @@ export default function MasteringFunction(props) {
 		formData.append('preset', `${selectedGenre}${toggle}`);
 
 		axios
-			.post('http://144.24.78.129:8080/mastering/upload', formData, {
+			.post('https://rappire.site/mastering/upload', formData, {
 				headers: { 'Content-Type': 'multipart/form-data' },
 				responseType: 'blob', // Expect binary data
 			})

@@ -83,7 +83,7 @@ export default function UploadButton(props) {
 		props.setOriginalWavFile(e.target.files[0]);
 
 		axios
-			.post('http://144.24.78.129:8080/mastering/upload', formData, {
+			.post('https://rappire.site/mastering/upload', formData, {
 				headers: { 'Content-Type': 'multipart/form-data' },
 				responseType: 'blob', // Expect binary data
 			})
