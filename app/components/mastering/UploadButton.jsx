@@ -146,7 +146,7 @@ export default function UploadButton(props) {
 				onDrop={handleDrop}
 			>
 				<Typography variant="h6">
-					Drag and drop your file here, or click to upload
+					Drag and drop your file here, or click the button below to upload
 				</Typography>
 			</DropZone>
 
