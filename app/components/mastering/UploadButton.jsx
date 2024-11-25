@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-import { Button } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import axios from 'axios';
 import { useState } from 'react';
 import { Riple } from 'react-loading-indicators';
@@ -18,6 +18,7 @@ const VisuallyHiddenInput = styled('input')({
 });
 
 const StyledButton = styled(Button)`
+	margin-top: 20px;
 	font-family: 'Unbounded', sans-serif;
 	font-weight: 500;
 	appearance: none;
@@ -36,7 +37,6 @@ const StyledButton = styled(Button)`
 	font-size: 37px;
 
 	line-height: normal;
-	margin: 0;
 	min-height: 60px;
 	min-width: 0;
 	outline: none;
@@ -71,16 +71,29 @@ const StyledButton = styled(Button)`
 	}
 `;
 
+const DropZone = styled('div')`
+	border: 2px dashed #ccc;
+	padding: 20px;
+	text-align: center;
+	border-radius: 10px;
+	background-color: ${(props) =>
+		props.isDragging ? '#80ff00' : 'transparent'};
+	transition: background-color 0.3s ease;
+	height: 200px;
+`;
+
 export default function UploadButton(props) {
 	const [loading, setLoading] = useState(false);
-	const handleClick = (e) => {
+	const [isDragging, setIsDragging] = useState(false);
+
+	const handleFileUpload = (file) => {
 		setLoading(true);
 
 		const formData = new FormData();
-		formData.append('file', e.target.files[0]);
+		formData.append('file', file);
 		formData.append('preset', 'pop1');
 
-		props.setOriginalWavFile(e.target.files[0]);
+		props.setOriginalWavFile(file);
 
 		axios
 			.post('https://rappire.site/mastering/upload', formData, {
@@ -99,32 +112,58 @@ export default function UploadButton(props) {
 			.finally(() => setLoading(false));
 	};
 
+	const handleDrop = (e) => {
+		e.preventDefault();
+		e.stopPropagation();
+		setIsDragging(false);
+		const file = e.dataTransfer.files[0];
+		if (file) handleFileUpload(file);
+	};
+
+	const handleDragOver = (e) => {
+		e.preventDefault();
+		e.stopPropagation();
+		setIsDragging(true);
+	};
+
+	const handleDragLeave = (e) => {
+		e.preventDefault();
+		e.stopPropagation();
+		setIsDragging(false);
+	};
+
+	const handleInputChange = (e) => {
+		const file = e.target.files[0];
+		if (file) handleFileUpload(file);
+	};
+
 	return (
-		<StyledButton component="label">
+		<>
+			<DropZone
+				isDragging={isDragging}
+				onDragOver={handleDragOver}
+				onDragLeave={handleDragLeave}
+				onDrop={handleDrop}
+			>
+				<Typography variant="h6">
+					Drag and drop your file here, or click to upload
+				</Typography>
+			</DropZone>
+
 			{!loading ? (
 				<>
-					<VisuallyHiddenInput
-						type="file"
-						onChange={(e) => {
-							handleClick(e);
-						}}
-					/>
-					<p>Let's Get Loud!</p>
-					<CloudUploadIcon fontSize="inherit" />
+					<StyledButton component="label">
+						<VisuallyHiddenInput type="file" onChange={handleInputChange} />
+						<p>Let's Get Loud!</p>
+						<CloudUploadIcon fontSize="inherit" />
+					</StyledButton>
 				</>
 			) : (
 				<>
-					{/* <ThreeDot
-						variant="bob"
-						color="#ffffff"
-						size="large"
-						text="Getting Loud..."
-						textColor="#ffffff"
-					/> */}
 					<p>Getting Loud...</p>
 					<Riple color="#000000" size="small" textColor="" />
 				</>
 			)}
-		</StyledButton>
+		</>
 	);
 }
