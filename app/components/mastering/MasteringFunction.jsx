@@ -224,10 +224,10 @@ export default function MasteringFunction(props) {
 			/>
 			<ToggleButtonGroup size="large" {...control} aria-label="Large sizes">
 				<StyledToggleButton value="1" key="1">
-					Pop 1
+					{selectedGenre} 1
 				</StyledToggleButton>
 				<StyledToggleButton value="2" key="2">
-					Pop 2
+					{selectedGenre} 2
 				</StyledToggleButton>
 			</ToggleButtonGroup>
 			{loading ? (
