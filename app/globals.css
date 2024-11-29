@@ -1,3 +1,6 @@
+@import url('https://fonts.cdnfonts.com/css/space-grotesk');
+@import url('https://fonts.cdnfonts.com/css/bebas-neue');
+
 :root {
 	--background: #ffffff;
 	--foreground: #171717;
@@ -45,3 +48,22 @@ a {
 	background-color: transparent !important;
 }
 
+.hamburger-btn {
+  height: 48px;
+  width: 48px;
+  background-color: transparent;
+  border: none;
+}
+
+.hamburger-btn-line {
+  width: 32px;
+  height: 2px;
+  display: block;
+  background-color: var(--foreground);
+  transition: 0.4s;
+  margin: 6px auto;
+}
+
+.hamburger-btn-line--2 {
+  display: none;
+}
