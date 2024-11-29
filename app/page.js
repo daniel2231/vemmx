@@ -2,8 +2,11 @@
 import styled from '@emotion/styled';
 import MainPageButton from './components/main/Button';
 import InitialTransition from './components/animation/InitialTransition';
-import { motion } from "motion/react"
+import { motion } from 'motion/react';
 import { useRouter } from 'next/navigation';
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+import Link from 'next/link';
+import { Key, Keyboard } from '@mui/icons-material';
 
 const BackgroundImage = styled.img`
 	position: absolute;
@@ -85,6 +88,20 @@ const products = {
 	},
 };
 
+const BackToHomePageLink = styled.div`
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 20px;
+	color: white;
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	font-family: 'Unbounded', sans-serif;
+	cursor: pointer;
+	
+`;
+
 export default function Home() {
 	const router = useRouter();
 	return (
@@ -94,6 +111,10 @@ export default function Home() {
 
 				<motion.div initial="initial" animate="animate" variants={content}>
 					<MainPageLayout>
+						<BackToHomePageLink>
+							<KeyboardBackspaceIcon />
+							<Link href="https://vemmx.com">Back to Home Page</Link>
+						</BackToHomePageLink>
 						<BackgroundImage />
 						<StyledTitle variants={title}>
 							Upgrade Your Music with Us

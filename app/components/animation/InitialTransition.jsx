@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { motion } from "motion/react"
+import { motion } from 'motion/react';
 
 const blackBox = {
 	initial: {
@@ -7,7 +7,8 @@ const blackBox = {
 		bottom: 0,
 	},
 	animate: {
-		height: 0,
+		height: 10,
+		display: 'none',
 		transition: {
 			when: 'afterChildren',
 			duration: 1.5,

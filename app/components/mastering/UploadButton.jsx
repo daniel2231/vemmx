@@ -151,18 +151,16 @@ export default function UploadButton(props) {
 			</DropZone>
 
 			{!loading ? (
-				<>
-					<StyledButton component="label">
-						<VisuallyHiddenInput type="file" onChange={handleInputChange} />
-						<p>Let's Get Loud!</p>
-						<CloudUploadIcon fontSize="inherit" />
-					</StyledButton>
-				</>
+				<StyledButton component="label">
+					<VisuallyHiddenInput type="file" onChange={handleInputChange} />
+					<p>Let's Get Loud!</p>
+					<CloudUploadIcon fontSize="inherit" />
+				</StyledButton>
 			) : (
-				<>
+				<StyledButton>
 					<p>Getting Loud...</p>
 					<Riple color="#000000" size="small" textColor="" />
-				</>
+				</StyledButton>
 			)}
 		</>
 	);

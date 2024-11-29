@@ -45,11 +45,14 @@ const StyledButton = styled.div`
 export default function Navbar(props) {
 	return (
 		<StyledNavbar>
-			<h1>VemmX</h1>
+			<Link href="/">
+				<h1>VemmX</h1>
+			</Link>
 			<StyledButtonDiv>
 				<StyledButton>
 					<Link href="/">Home</Link>
 				</StyledButton>
+
 				<StyledButton>
 					<Link href="/mastering">Mastering</Link>
 				</StyledButton>
